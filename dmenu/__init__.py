@@ -1,6 +1,7 @@
 import subprocess
 
 executable_path = "/bin/dmenu"
+extra_args = []
 
 
 class DMenuContent:
@@ -18,7 +19,7 @@ class DMenuContent:
         return _in
 
     def run(self):
-        process = subprocess.Popen([executable_path, *self._args],
+        process = subprocess.Popen([executable_path, *extra_args, *self._args],
                                    stdin=subprocess.PIPE,
                                    stdout=subprocess.PIPE)
 
